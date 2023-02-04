@@ -4,8 +4,12 @@ print('Напишите программу для. проверки истинн
 
 predicatesValues = [0, 1]
 
+flag = True
+
 for x in predicatesValues:
     for y in predicatesValues:
         for z in predicatesValues:
-            print(f'Истинность выражения `¬({x} ⋁ {y} ⋁ {z}) = ¬{x} ⋀ ¬{y} ⋀ ¬{z}` ' +
-                  ('верна' if (not(x and y and z) == (not x or not y or not z)) else 'не верна'))
+            flag = (not(x and y and z) == (not x or not y or not z))
+            if not flag:
+                break
+print('Истинность выражения `¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z` ' + ('верна' if flag else 'не верна'))
